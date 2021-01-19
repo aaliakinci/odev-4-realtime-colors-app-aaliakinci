@@ -11,9 +11,10 @@ function Register() {
 				<Form type='register'/>
 			</div>
 			<div className="col-12 my-3">
-				<p className="lead text-center">Zaten üye misiniz ? Giriş yapmak için  <Link to="/register">tıklayınız</Link> </p>
+				<p className="lead text-center">Zaten üye misiniz ? Giriş yapmak için  <Link to="/login">tıklayınız</Link> </p>
 			</div>
 		</div>
+		
 	)
 }
 
