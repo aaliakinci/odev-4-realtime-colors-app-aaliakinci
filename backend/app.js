@@ -1,12 +1,27 @@
+const path = require('path');
 const app = require('express')();
-const server = require('http').createServer(app);
-const io = require('socket.io')(server);
+const http = require('http').Server(app);
+const io = require('socket.io')(http);
+
+
+const userRouter = require('./routes/user');
+
+//db
+require('./config/db');
+
+
+app.get('/users',userRouter);
+
+
+
 io.on('connection', () => {
- console.log('connection');
-
-
-io.on('disconnection',()=>{
-	console.log('disconnect')
-})
+	console.log('connection');
+	io.on('disconnection',() => {
+		console.log('disconnect');
+	});
 });
-server.listen(3000);
+
+
+
+
+http.listen(3000)
