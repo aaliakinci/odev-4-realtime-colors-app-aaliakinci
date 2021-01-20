@@ -3,6 +3,8 @@ const User = require('../Models/User');
 const bcrypt = require('bcryptjs');
 
 const createUser = async(req,res) => {
+	res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3001');
+
 	try {
 		const {username,password} = req.body;
 		bcrypt.hash('password', 8, async(err, hash) => {
@@ -19,6 +21,8 @@ const createUser = async(req,res) => {
 }
 
 const loginUser = async(req,res) => {
+	res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3001');
+
 	try {
 		const { username, password } = req.body;
 		const user = await findUserForLogin(username, password);
