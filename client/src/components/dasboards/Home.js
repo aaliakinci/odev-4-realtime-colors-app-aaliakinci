@@ -5,7 +5,7 @@ function Home() {
 	const { getCookie } = useContext(CookieContext);
 
 	useEffect(() => {
-		const result = getCookie('deneme');
+		const result = getCookie('realtimecolor');
 		if (result === 0) {
 			toast.error('🦄 Lütfen Giriş Yapınız!', {
 				position: "top-center",

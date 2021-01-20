@@ -19,6 +19,7 @@ function Form({ type }) {
 				return false;
 			}
 			setCookie('realtimecolor', response.data, 20);
+			window.location.href=`${process.env.REACT_APP_CLIENT_URL}/`
 		}
 		if (type === 'register'){
 			if(username==="" || password==="")

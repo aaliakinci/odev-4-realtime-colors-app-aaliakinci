@@ -15,7 +15,7 @@ function ThemeChanger() {
 	};
 
 	return (
-		<div className="row">
+		<div className="row my-4">
 			<div className="col-12 d-flex justify-content-between">
 				<p className="lead font-weight-bolder text-center"> Realtime Color - Chat</p>
 
