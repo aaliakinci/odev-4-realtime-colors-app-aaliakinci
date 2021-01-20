@@ -4,28 +4,24 @@ const UserContext = createContext(null);
 
 export const UserProvider = ({ children }) => {
 	const loginUser = (username, password) => {
-		const url = `${process.env.REACT_APP_BACKEND_URL}/users/loginUser`;
-		axios
+		const url = `${process.env.REACT_APP_BACKEND_URL}/users/login`;
+		return axios
 			.post(url, { username: username, password: password })
 			.then((response) => {
-				console.log(response);
+				return response;
 			})
 			.catch((error) => {
 				console.log(error);
 			});
 	};
 
-	const registerUser = (username, password,setUsername,setPassword) => {
+	const registerUser = (username, password) => {
 		const url = `${process.env.REACT_APP_BACKEND_URL}/users/register`;
-		console.log(url)
-		axios
+
+	 return axios
 			.post(url, { username: username, password: password })
 			.then((response) => {
-				if(response.status===200)
-				setUsername(username);
-				setPassword(password);
-				window.location.href=`${process.env.REACT_APP_CLIENT_URL}/login`;
-
+				return response;
 			})
 			.catch((error) => {
 				console.log(error);

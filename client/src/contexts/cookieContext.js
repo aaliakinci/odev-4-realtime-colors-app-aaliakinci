@@ -4,8 +4,7 @@ import cookie from 'js-cookie';
 
 const CookieContext = createContext(null);
 
-export const CookieProvider = ({childiren}) => {
-
+export const CookieProvider = ({children}) => {
 
 	const getCookie = (name) => {
 		const mycookie = cookie.get(name);
@@ -15,8 +14,13 @@ export const CookieProvider = ({childiren}) => {
 		}
 		return 1
 	}
+	const setCookie = (name,value,expiredTime) => {
+	 cookie.set(name,value,{expires:expiredTime});
+	}
+
 	const values = {
-		getCookie();
+		getCookie,
+		setCookie
 	}
 
 
@@ -25,3 +29,4 @@ export const CookieProvider = ({childiren}) => {
 	)
 }
 
+export default CookieContext;
