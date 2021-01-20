@@ -9,12 +9,15 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import { UserProvider } from './contexts/userContext';
 import { CookieProvider } from './contexts/cookieContext';
+import { ThemeProvider } from './contexts/themeContext';
 ReactDOM.render(
 	<BrowserRouter>
 		<React.StrictMode>
 			<UserProvider>
 				<CookieProvider>
-					<App />
+					<ThemeProvider>
+						<App />
+					</ThemeProvider>
 				</CookieProvider>
 			</UserProvider>
 		</React.StrictMode>
