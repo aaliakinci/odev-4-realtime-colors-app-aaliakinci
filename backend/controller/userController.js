@@ -9,9 +9,11 @@ const jwt = require('jsonwebtoken');
 //register
 const createUser = async (req, res) => {
 	try {
-		const { username, password } = req.body;
+		const { username, password,name,surname } = req.body;
 		bcrypt.hash(password, 8, (err, hash) => {
 			const user = new User({
+				name,
+				surname,
 				username,
 				password: hash,
 			});
