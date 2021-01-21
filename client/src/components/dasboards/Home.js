@@ -1,12 +1,14 @@
 import { useEffect, useContext } from 'react';
+import {Switch,Route} from 'react-router-dom';
 import CookieContext from '../../contexts/cookieContext';
 import UserContext from '../../contexts/userContext';
 import { ToastContainer, toast } from 'react-toastify';
 import UserList from '../User/UserList';
 import Loading from '../Loading/Loading';
+import AllChat from '../Chats/AllChat';
 function Home() {
 	const { getCookie } = useContext(CookieContext);
-	const { users, getAllUser } = useContext(UserContext);
+	const { users} = useContext(UserContext);
 	useEffect(() => {
 		const result = getCookie('realtimecolor');
 		if (result === 0) {
@@ -24,30 +26,24 @@ function Home() {
 			}, 1000);
 		}
 	}, [getCookie]);
-
-	useEffect(() => {
-		setTimeout(()=>{
-			getAllUser();
-		},10000)
-	}, [users]);
 	console.log(users);
 	const hasUser = () => {
 		return (
 			<div className="row">
 				<div className="col-md-2 p-4">
-					<UserList/>
+					<UserList />
 				</div>
 				<div className="col-md-10">
-					Chat
+					<Switch>
+						<Route path="/" exact component={AllChat}/>
+					</Switch>
 				</div>
 			</div>
 		);
 	};
 	const hasntUser = () => {
-		return (
-			<Loading/>
-		)
-	}
+		return <Loading />;
+	};
 
 	return (
 		<>
@@ -61,9 +57,7 @@ function Home() {
 				draggable
 				pauseOnHover
 			/>
-			{
-				users.length>0?hasUser():hasntUser()	
-			}
+			{users.length > 0 ? hasUser() : hasntUser()}
 		</>
 	);
 }

@@ -17,7 +17,7 @@ function ThemeChanger() {
 	return (
 		<div className="row my-4">
 			<div className="col-12 d-flex justify-content-between">
-				<p className="lead font-weight-bolder text-center"> Realtime Color - Chat</p>
+				<p className="lead font-weight-bolder text-center navbar-brand"> Realtime Color - Chat</p>
 
 				<div className="form-group">
 					<label>{theme==="light"?'Koyu Tema':'Açık Tema'}</label>
