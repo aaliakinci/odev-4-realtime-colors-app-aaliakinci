@@ -2,6 +2,11 @@ const createError = require('http-errors');
 const User = require('../Models/User');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+
+
+
+
+//register
 const createUser = async (req, res) => {
 	try {
 		const { username, password } = req.body;
@@ -23,7 +28,7 @@ const createUser = async (req, res) => {
 		res.json({ status: 414, message: error.message });
 	}
 };
-
+//login
 const loginUser = async (req, res) => {
 	try {
 		const { username, password } = req.body;
@@ -36,6 +41,27 @@ const loginUser = async (req, res) => {
 		res.json({ status: error.code, message: error.message });
 	}
 };
+
+//getAll 
+const getAll = async (req,res)=>{
+	try {
+		const users = await User.find({})
+		res.status(200).json(users);
+	} catch (error) {
+		console.log(error);
+	}
+}
+
+
+
+
+
+
+
+
+
+//Functions
+
 //find user
 const findUserForLogin = async (username, password) => {
 	try {
@@ -67,4 +93,5 @@ const createToken = async (user) => {
 module.exports = {
 	createUser,
 	loginUser,
+	getAll
 };
