@@ -9,9 +9,9 @@ import cookie from 'js-cookie';
 import ThemeChanger from './components/ThemeChanger/ThemeChanger';
 function App() {
 	const { theme } = useContext(ThemeContext);
-	useEffect(() => {
-		const myCookie = cookie.getJSON('thema');
-	}, []);
+	// useEffect(() => {
+	// 	const myCookie = cookie.getJSON('thema');
+	// }, []);
 	return (
 		<div className={`${theme === 'dark' ? styles.darkbg : ''}`}>
 			<div className="container-fluid">

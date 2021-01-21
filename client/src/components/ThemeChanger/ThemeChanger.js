@@ -2,15 +2,16 @@ import { useEffect, useContext, useState } from 'react';
 import ThemeContext from '../../contexts/themeContext';
 import Switch from '../../../node_modules/@material-ui/core/Switch/Switch';
 function ThemeChanger() {
-	const { theme, changeTheme } = useContext(ThemeContext);
+	const { theme, setTheme } = useContext(ThemeContext);
 	const [changerTheme, setChangerTheme] = useState({
 		checkedA: false,
 	});
 	useEffect(() => {
-		setChangerTheme({ ...changerTheme, checkedA: theme === 'light' ? false : true });
+		setChangerTheme({ checkedA: theme === 'light' ? false : true });
 	}, [theme]);
+
 	const handleChange = (event) => {
-		changeTheme(theme === 'light' ? 'dark' : 'light');
+		setTheme(theme === 'light' ? 'dark' : 'light');
 		setChangerTheme({ ...changerTheme, [event.target.name]: event.target.checked });
 	};
 
@@ -20,7 +21,7 @@ function ThemeChanger() {
 				<p className="lead font-weight-bolder text-center navbar-brand"> Realtime Color - Chat</p>
 
 				<div className="form-group">
-					<label>{theme==="light"?'Koyu Tema':'Açık Tema'}</label>
+					<label>{theme==="light"?'Açık Tema':'Koyu Tema'}</label>
 				<Switch
 					checked={changerTheme.checkedA}
 					onChange={handleChange}

@@ -1,4 +1,4 @@
-import { createContext, useState,useEffect } from 'react';
+import { createContext, useState, useEffect } from 'react';
 import axios from 'axios';
 const UserContext = createContext(null);
 
@@ -30,7 +30,6 @@ export const UserProvider = ({ children }) => {
 			});
 	};
 
-
 	const getAllUser = () => {
 		const url = `${process.env.REACT_APP_BACKEND_URL}/users/getAll`;
 		axios(url)
@@ -41,18 +40,16 @@ export const UserProvider = ({ children }) => {
 				console.log(err);
 			});
 	};
-
-	 
-	console.log(selectedUser);
-
 	useEffect(() => {
 		getAllUser();
-	}, [])
+	}, []);
+
 	const values = {
 		loginUser,
 		registerUser,
 		users,
-		setSelectedUser
+		selectedUser,
+		setSelectedUser,
 	};
 
 	return <UserContext.Provider value={values}>{children}</UserContext.Provider>;

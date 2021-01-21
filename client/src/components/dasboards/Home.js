@@ -5,12 +5,12 @@ import UserContext from '../../contexts/userContext';
 import { ToastContainer, toast } from 'react-toastify';
 import UserList from '../User/UserList';
 import Loading from '../Loading/Loading';
-import AllChat from '../Chats/AllChat';
+import AllChat from './AllChat';
 function Home() {
 	const { getCookie } = useContext(CookieContext);
 	const { users} = useContext(UserContext);
+	const result = getCookie('realtimecolor');
 	useEffect(() => {
-		const result = getCookie('realtimecolor');
 		if (result === 0) {
 			toast.error('🦄 Lütfen Giriş Yapınız!', {
 				position: 'top-center',
@@ -25,15 +25,15 @@ function Home() {
 				window.location.href = `${process.env.REACT_APP_CLIENT_URL}/login`;
 			}, 1000);
 		}
-	}, [getCookie]);
-	console.log(users);
+	}, [getCookie,result]);
+
 	const hasUser = () => {
 		return (
 			<div className="row">
 				<div className="col-md-2 p-4">
 					<UserList />
 				</div>
-				<div className="col-md-10">
+				<div className="col-md-10 d-flex justify-content-lg-center">
 					<Switch>
 						<Route path="/" exact component={AllChat}/>
 					</Switch>
@@ -44,7 +44,7 @@ function Home() {
 	const hasntUser = () => {
 		return <Loading />;
 	};
-
+	console.log(result);
 	return (
 		<>
 			<ToastContainer
@@ -57,7 +57,9 @@ function Home() {
 				draggable
 				pauseOnHover
 			/>
-			{users.length > 0 ? hasUser() : hasntUser()}
+			{
+			users.length > 0 && result===1 ? hasUser() : hasntUser()
+			}
 		</>
 	);
 }

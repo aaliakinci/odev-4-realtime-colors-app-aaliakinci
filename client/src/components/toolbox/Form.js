@@ -63,7 +63,7 @@ function Form({ type }) {
 			</div>
 			<div className="form-group">
 				<label htmlFor="surname" className="form-control-label">
-					Soyadınız * <span className="text-danger">*</span>
+					Soyadınız  <span className="text-danger">*</span>
 				</label>
 				<input name="surname" type="text" className="form-control" onChange={handleChange} />
 			</div>

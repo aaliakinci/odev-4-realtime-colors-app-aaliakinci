@@ -14,13 +14,18 @@ export const CookieProvider = ({children}) => {
 		}
 		return 1
 	}
+	const callCookie = (name) => {
+		const calledcookie = cookie.getJSON(name);
+		return calledcookie;
+	}
 	const setCookie = (name,value,expiredTime) => {
 	 cookie.set(name,value,{expires:expiredTime});
 	}
 
 	const values = {
 		getCookie,
-		setCookie
+		setCookie,
+		callCookie
 	}
 
 
