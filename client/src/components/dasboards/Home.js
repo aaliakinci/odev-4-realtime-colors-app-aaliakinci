@@ -34,10 +34,10 @@ function Home() {
 	const hasUser = () => {
 		return (
 			<div className="row">
-				<div className="col-md-4">
+				<div className="col-md-2 p-4">
 					<UserList/>
 				</div>
-				<div className="col-md-8">
+				<div className="col-md-10">
 					Chat
 				</div>
 			</div>

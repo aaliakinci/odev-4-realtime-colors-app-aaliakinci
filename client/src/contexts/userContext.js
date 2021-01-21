@@ -1,10 +1,9 @@
-import { createContext,useState } from 'react';
+import { createContext, useState } from 'react';
 import axios from 'axios';
 const UserContext = createContext(null);
 
 export const UserProvider = ({ children }) => {
-	const [users, setUsers] = useState([])
-
+	const [users, setUsers] = useState([]);
 
 	const loginUser = (username, password) => {
 		const url = `${process.env.REACT_APP_BACKEND_URL}/users/login`;
@@ -17,11 +16,11 @@ export const UserProvider = ({ children }) => {
 				console.log(error);
 			});
 	};
-	const registerUser = (username, password) => {
+	const registerUser = (username, password, name, surname) => {
 		const url = `${process.env.REACT_APP_BACKEND_URL}/users/register`;
 
-	 return axios
-			.post(url, { username: username, password: password })
+		return axios
+			.post(url, { username: username, password: password, name: name, surname: surname })
 			.then((response) => {
 				return response;
 			})
@@ -31,13 +30,15 @@ export const UserProvider = ({ children }) => {
 	};
 
 	const getAllUser = () => {
-		const url = `${process.env.REACT_APP_BACKEND_URL}/users/getAll`
-		axios(url).then((response)=>{
-			setUsers(response.data);
-		}).catch((err)=>{
-			console.log(err);
-		});
-	}
+		const url = `${process.env.REACT_APP_BACKEND_URL}/users/getAll`;
+		axios(url)
+			.then((response) => {
+				setUsers(response.data);
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+	};
 
 	const values = {
 		loginUser,
