@@ -1,28 +1,57 @@
 import { useEffect, useContext } from 'react';
 import CookieContext from '../../contexts/cookieContext';
+import UserContext from '../../contexts/userContext';
 import { ToastContainer, toast } from 'react-toastify';
+import UserList from '../User/UserList';
+import Loading from '../Loading/Loading';
 function Home() {
 	const { getCookie } = useContext(CookieContext);
-
+	const { users, getAllUser } = useContext(UserContext);
 	useEffect(() => {
 		const result = getCookie('realtimecolor');
 		if (result === 0) {
 			toast.error('🦄 Lütfen Giriş Yapınız!', {
-				position: "top-center",
+				position: 'top-center',
 				autoClose: 5000,
 				hideProgressBar: true,
 				closeOnClick: true,
 				pauseOnHover: true,
 				draggable: true,
 				progress: undefined,
-				});
-			setTimeout(()=>{
+			});
+			setTimeout(() => {
 				window.location.href = `${process.env.REACT_APP_CLIENT_URL}/login`;
-			},1000);
+			}, 1000);
 		}
 	}, [getCookie]);
-	return <div>Home Page
-		<ToastContainer
+
+	useEffect(() => {
+		setTimeout(()=>{
+			getAllUser();
+		},10000)
+	}, [users]);
+	console.log(users);
+	const hasUser = () => {
+		return (
+			<div className="row">
+				<div className="col-md-4">
+					<UserList/>
+				</div>
+				<div className="col-md-8">
+					Chat
+				</div>
+			</div>
+		);
+	};
+	const hasntUser = () => {
+		return (
+			<Loading/>
+		)
+	}
+
+	return (
+		<>
+			<ToastContainer
 				position="top-center"
 				autoClose={2000}
 				hideProgressBar={false}
@@ -32,7 +61,11 @@ function Home() {
 				draggable
 				pauseOnHover
 			/>
-	</div>;
+			{
+				users.length>0?hasUser():hasntUser()	
+			}
+		</>
+	);
 }
 
 export default Home;
