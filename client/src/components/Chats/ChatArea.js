@@ -1,17 +1,30 @@
-import { useContext,memo } from 'react';
+import { useContext,useRef,useEffect } from 'react';
 import styles from './styles.module.css';
-import ChatContext from '../../contexts/chatContext'
-import ChatItem from './ChatItem'
+import ChatContext from '../../contexts/chatContext';
+import ChatItem from './ChatItem';
+import ScrollableFeed from 'react-scrollable-feed';
 function ChatArea() {
 	const { messages } = useContext(ChatContext);
-
-	return <div className={styles.chatarea}>
-		{
-		messages?.map((message,i)=>(
-			<ChatItem key={i} user={message.user} message={message.message}/>
-		))
-	}
-	</div>;
+	const chatListRef = useRef(null);
+	useEffect(() => {
+		chatListRef.current.scrollIntoView({ behavior: 'smooth' });
+	}, [messages]);
+	return (
+		 
+			<div className={styles.chatarea} ref={chatListRef}>
+				<ScrollableFeed forceScroll={true} className="h-100 w-100">
+					{messages?.map((message, i) => (
+						<ChatItem
+							key={i}
+							user={message.user}
+							message={message.message}
+							time={message.messageTime}
+						/>
+					))}
+				</ScrollableFeed>
+			</div>
+ 
+	);
 }
 
-export default memo(ChatArea);
+export default ChatArea;

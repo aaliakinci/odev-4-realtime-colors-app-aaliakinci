@@ -18,7 +18,8 @@ function ChatForm() {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		setInputValue('');
-		setMessages([...messages, { user: messageUser, message: inputValue }]);
+		const time = Date.now();
+		setMessages([...messages, { user: messageUser, message: inputValue,messageTime:time}]);
 	};
 
 	return (

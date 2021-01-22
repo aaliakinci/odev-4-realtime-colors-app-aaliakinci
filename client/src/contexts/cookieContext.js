@@ -1,11 +1,11 @@
-import {createContext} from 'react'
+import {createContext,useState,useEffect} from 'react'
 import cookie from 'js-cookie';
 
 
 const CookieContext = createContext(null);
 
 export const CookieProvider = ({children}) => {
-
+	const [userCookie, setUserCookie] = useState([])
 	const getCookie = (name) => {
 		const mycookie = cookie.get(name);
 		if(!mycookie)
@@ -18,6 +18,13 @@ export const CookieProvider = ({children}) => {
 		const calledcookie = cookie.getJSON(name);
 		return calledcookie;
 	}
+	useEffect(() => {
+		setUserCookie(cookie.getJSON('realtimecolor'));
+	}, [])
+
+
+
+
 	const setCookie = (name,value,expiredTime) => {
 	 cookie.set(name,value,{expires:expiredTime});
 	}
@@ -25,7 +32,8 @@ export const CookieProvider = ({children}) => {
 	const values = {
 		getCookie,
 		setCookie,
-		callCookie
+		callCookie,
+		userCookie
 	}
 
 

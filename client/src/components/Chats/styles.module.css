@@ -3,14 +3,14 @@
 	min-height:70vh;
 	background-color:rgb(73, 73, 73);
 	border: solid 1px #ddd;
-	padding: 40px;
+	padding: 20px;
 	overflow: hidden;
-}
-.chatlist > div {
 	display: flex;
 	flex-direction: column;
 	height: 400px;
+	
 }
+ 
 .chatItem {
 	font-size: 18px;
 	color: #333;
