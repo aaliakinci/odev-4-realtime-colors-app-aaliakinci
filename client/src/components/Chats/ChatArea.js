@@ -8,7 +8,7 @@ function ChatArea() {
 	return <div className={styles.chatarea}>
 		{
 		messages?.map((message,i)=>(
-			<ChatItem key={i} message={message.message}/>
+			<ChatItem key={i} user={message.user} message={message.message}/>
 		))
 	}
 	</div>;
