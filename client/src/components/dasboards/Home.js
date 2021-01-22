@@ -3,7 +3,6 @@ import {Switch,Route} from 'react-router-dom';
 import CookieContext from '../../contexts/cookieContext';
 import UserContext from '../../contexts/userContext';
 import { ToastContainer, toast } from 'react-toastify';
-import UserList from '../User/UserList';
 import Loading from '../Loading/Loading';
 import AllChat from './AllChat';
 function Home() {
@@ -30,10 +29,7 @@ function Home() {
 	const hasUser = () => {
 		return (
 			<div className="row">
-				<div className="col-md-2 p-4">
-					<UserList />
-				</div>
-				<div className="col-md-10 d-flex justify-content-lg-center">
+				<div className="col-md-12 d-flex justify-content-lg-center">
 					<Switch>
 						<Route path="/" exact component={AllChat}/>
 					</Switch>

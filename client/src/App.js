@@ -13,7 +13,7 @@ function App() {
 	// 	const myCookie = cookie.getJSON('thema');
 	// }, []);
 	return (
-		<div className={`${theme === 'dark' ? styles.darkbg : ''}`}>
+		<div className={`${theme === 'dark' ? styles.darkbg : styles.lightbg}`}>
 			<div className="container-fluid">
 				<ThemeChanger/>
 				<Switch>

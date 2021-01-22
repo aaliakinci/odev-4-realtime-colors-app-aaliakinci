@@ -1,4 +1,5 @@
 import { useEffect, useContext, useState } from 'react';
+import styles from './styles.module.css';
 import ThemeContext from '../../contexts/themeContext';
 import Switch from '../../../node_modules/@material-ui/core/Switch/Switch';
 function ThemeChanger() {
@@ -18,16 +19,18 @@ function ThemeChanger() {
 	return (
 		<div className="row my-4">
 			<div className="col-12 d-flex justify-content-between">
-				<p className="lead font-weight-bolder text-center navbar-brand"> Realtime Color - Chat</p>
-
+				<p className={`${styles.webbrand} text-white text-center`}>
+					{' '}
+					Realtime Color - Chat
+				</p>
 				<div className="form-group">
-					<label>{theme==="light"?'Açık Tema':'Koyu Tema'}</label>
-				<Switch
-					checked={changerTheme.checkedA}
-					onChange={handleChange}
-					name="checkedA"
-					inputProps={{ 'aria-label': 'secondary checkbox' }}
-				/>
+					<label>{theme === 'light' ? 'Açık Tema' : 'Koyu Tema'}</label>
+					<Switch
+						checked={changerTheme.checkedA}
+						onChange={handleChange}
+						name="checkedA"
+						inputProps={{ 'aria-label': 'secondary checkbox' }}
+					/>
 				</div>
 			</div>
 		</div>
