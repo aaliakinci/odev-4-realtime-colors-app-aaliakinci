@@ -30,6 +30,10 @@ io.on('connection',socket => {
 	 })
 	}) 
 	
+	socket.on("new-Bg", bg => {
+    socket.broadcast.emit("receive-Bg", bg);
+  });
+
 	socket.on('new-Message',data=>{
 		console.log(data);
 		Messages.upsert(data);
