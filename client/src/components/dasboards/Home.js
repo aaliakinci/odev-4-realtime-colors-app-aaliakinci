@@ -36,7 +36,7 @@ function Home() {
 		return (
 			<div className="row">
 				<div className="col-md-12 d-flex justify-content-lg-around">
-					<Link to="/chat" className="nav-link h1 border border-danger border-right-0 border-left-0 border-top-0 mr-2 text-white" >Chat</Link>
+					<Link to="/chat/chat-kullanicilar" className="nav-link h1 border border-danger border-right-0 border-left-0 border-top-0 mr-2 text-white" >Chat</Link>
 					<Link to="/renk-degistir" className="nav-link h1 border border-danger border-right-0 border-left-0 border-top-0 text-white">Real Time Color</Link>
 				</div>
 				<div className="col-md-12 d-flex justify-content-lg-center">

@@ -17,7 +17,7 @@ function App() {
  useEffect(() => {
 	const result =  getCookie('realtimecolor');
 	setResult(result)
- }, [])
+ }, [getCookie])
 	return (
 		<div className={`${theme === 'dark' ? styles.darkbg : styles.lightbg}`}>
 			<div className="container-fluid">

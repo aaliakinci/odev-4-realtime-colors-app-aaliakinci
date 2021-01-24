@@ -52,9 +52,11 @@ export const sendBg = (bg) => {
 
 
 export const recivedBg = (cb) => {
-	if (!socket) return true;
-	console.log('girdim');
-  socket.on("receive-Bg", (bg) => {
-    cb(bg);
-  });
+	if (socket)
+	{
+		socket.on("receive-Bg", (bg) => {
+			cb(bg);
+		});
+	}
+  
 };

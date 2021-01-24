@@ -17,14 +17,14 @@ function UserList() {
 	return (
 		<div className={`${theme === 'light' ? styles.messagesbox : `${styles.messagesbox} bg-dark`}`}>
 			{users.map((user) => (
-				<>
+				<div key={user._id}>
 					{user.username === userCookie.user.username?
-						''
+						""
 					 : 
 						<div
 							className="list-group rounded-0"
 							onClick={() => setSelectedUser(user)}
-							key={user._id}
+							
 						>
 							<div
 								className={
@@ -40,7 +40,7 @@ function UserList() {
 													: ''
 										  }`
 								}
-							>
+							 >
 								<div className="media">
 									<img src={avatar} alt="user" width="50" className="rounded-circle" />
 									<div className="media-body ml-4">
@@ -49,7 +49,7 @@ function UserList() {
 												theme === 'light' ? 'text-dark' : 'text-white'
 											}`}
 										>
-											<h6 className="mb-0">
+											<h6 className="mb-0"  >
 												{user.name} {user.surname} ({user.username})
 											</h6>
 											<button
@@ -66,7 +66,7 @@ function UserList() {
 							</div>
 						</div>
 					}
-				</>
+				</div>
 			))}
 		</div>
 	);

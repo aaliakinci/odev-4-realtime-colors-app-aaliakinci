@@ -22,7 +22,7 @@ function ChatArea() {
 
 		recivedMessage((data)=>setMessages((oldMessages)=>[...oldMessages,{data}]));
 		
-	}, [])
+	}, [setMessages])
  
 	return (
 		<div
@@ -52,9 +52,9 @@ function ChatArea() {
 		}>Sohbet Seçiniz..</div>
 			)}
 			<ScrollableFeed forceScroll={true} styles={{ maxHeight: '510' }}>
-				{messages?.map((message, i) => (
+				{messages?.map((message) => (
 					<ChatItem
-						key={i}
+						key={message.data.user._id}
 						user={message.data.user}
 						message={message.data.message}
 						time={message.data.messageTime}
