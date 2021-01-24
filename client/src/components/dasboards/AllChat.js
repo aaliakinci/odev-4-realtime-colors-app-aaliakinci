@@ -9,8 +9,6 @@ import RoomList from '../Room/RoomList';
 
 function AllChat() {
 	const { theme } = useContext(ThemeContext);
-	// const [which, setWhich] = useState('users');
-
 	return (
 		<div className="container py-5 px-4">
 			<div className={`row ${styles.roundedlg} overflow-hidden shadow`}>
