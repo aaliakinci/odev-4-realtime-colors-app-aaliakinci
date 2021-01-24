@@ -12,6 +12,7 @@ import { CookieProvider } from './contexts/cookieContext';
 import { ThemeProvider } from './contexts/themeContext';
 import { ChatProvider } from './contexts/chatContext';
 import { RoomProvider } from './contexts/roomContext';
+import { ColorProvider } from './contexts/colorContext';
 
 ReactDOM.render(
 	<BrowserRouter>
@@ -21,7 +22,9 @@ ReactDOM.render(
 					<ChatProvider>
 						<RoomProvider>
 							<ThemeProvider>
-								<App />
+								<ColorProvider>
+									<App />
+								</ColorProvider>
 							</ThemeProvider>
 						</RoomProvider>
 					</ChatProvider>

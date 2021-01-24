@@ -15,8 +15,7 @@ function RoomList() {
 		listUserRooms((rooms) => {
 			setRooms((oldRooms) => [...oldRooms,...rooms]);
 		});
-	 
-	}, [userCookie.user.username])
+	}, [userCookie.user.username,setRooms])
  const selectRoom = async(room) => {
 	 setSelectedRoom(room);
 	await getMessages(room.roomName);

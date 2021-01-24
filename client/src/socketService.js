@@ -46,3 +46,15 @@ export const recivedMessage = (cb) => {
 		});
 	}
 };
+export const sendBg = (bg) => {
+  if (socket) socket.emit("new-Bg", bg);
+};
+
+
+export const recivedBg = (cb) => {
+	if (!socket) return true;
+	console.log('girdim');
+  socket.on("receive-Bg", (bg) => {
+    cb(bg);
+  });
+};
