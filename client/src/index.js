@@ -11,7 +11,7 @@ import { UserProvider } from './contexts/userContext';
 import { CookieProvider } from './contexts/cookieContext';
 import { ThemeProvider } from './contexts/themeContext';
 import { ChatProvider } from './contexts/chatContext';
-
+import { RoomProvider } from './contexts/roomContext';
 
 ReactDOM.render(
 	<BrowserRouter>
@@ -19,9 +19,11 @@ ReactDOM.render(
 			<UserProvider>
 				<CookieProvider>
 					<ChatProvider>
-						<ThemeProvider>
-							<App />
-						</ThemeProvider>
+						<RoomProvider>
+							<ThemeProvider>
+								<App />
+							</ThemeProvider>
+						</RoomProvider>
 					</ChatProvider>
 				</CookieProvider>
 			</UserProvider>

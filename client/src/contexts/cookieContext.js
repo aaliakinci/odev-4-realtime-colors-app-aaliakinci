@@ -21,19 +21,19 @@ export const CookieProvider = ({children}) => {
 	useEffect(() => {
 		setUserCookie(cookie.getJSON('realtimecolor'));
 	}, [])
-
-
-
-
 	const setCookie = (name,value,expiredTime) => {
 	 cookie.set(name,value,{expires:expiredTime});
+	}
+	const deleteCookie=(name)=>{
+		cookie.remove(name);
 	}
 
 	const values = {
 		getCookie,
 		setCookie,
 		callCookie,
-		userCookie
+		userCookie,
+		deleteCookie
 	}
 
 

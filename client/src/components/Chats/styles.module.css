@@ -1,42 +1,4 @@
-/* .chatarea {
-	width:100%;
-	min-height:70vh;
-	background-color:rgb(73, 73, 73);
-	border: solid 1px #ddd;
-	padding: 20px;
-	overflow: hidden;
-	display: flex;
-	flex-direction: column;
-	height: 400px;
-	
-}
- 
-.chatItem {
-	font-size: 18px;
-	color: #333;
-	border-radius: 8px;
-	background: #fff;
-	padding: 12px 18px;
-	border: 0.5px solid rgba(0, 0, 0, 0.02);
-	box-shadow: 0 2px 1px rgba(0, 0, 0, 0.08);
-	max-width: 70%;
-	display: inline-block;
-	text-align: left;
-	margin-bottom: 6px;
-	margin-right: auto;
-}
-.chatItem.right {
-	margin-right: 0;
-	margin-left: auto;
-}
- 
 
-.chatlist > div {
-	display: flex;
-	flex-direction: column;
-	height: 400px;
-} */
- 
 ::-webkit-scrollbar {
   width: 5px;
 }
@@ -48,8 +10,8 @@
 
 ::-webkit-scrollbar-thumb {
   width: 1em;
-  background-color: #ddd;
-  outline: 1px solid slategrey;
+  background-color: rgb(133, 29, 29);
+  outline: 1px solid white;
   border-radius: 1rem;
 }
 
@@ -66,6 +28,10 @@
 .roundedlg {
   border-radius: 1rem;
 }
+.chatAreaHeaderLight {
+	background-color: #4e94dc;
+}
+
 
 input::placeholder {
   font-size: 0.9rem;

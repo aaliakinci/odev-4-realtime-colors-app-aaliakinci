@@ -11,6 +11,7 @@ function ThemeChanger() {
 		setChangerTheme({ checkedA: theme === 'light' ? false : true });
 	}, [theme]);
 
+	
 	const handleChange = (event) => {
 		setTheme(theme === 'light' ? 'dark' : 'light');
 		setChangerTheme({ ...changerTheme, [event.target.name]: event.target.checked });
@@ -23,6 +24,7 @@ function ThemeChanger() {
 					{' '}
 					Realtime Color - Chat
 				</p>
+				
 				<div className="form-group">
 					<label>{theme === 'light' ? 'Açık Tema' : 'Koyu Tema'}</label>
 					<Switch

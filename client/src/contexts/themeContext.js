@@ -16,7 +16,7 @@ export const ThemeProvider = ({ children }) => {
 	useEffect(() => {
 		cookie.set('theme', { theme }, { expires: 30 });
 	}, [theme]);
-	console.log(theme);
+ 
 	const values = {
 		theme,
 		setTheme,
