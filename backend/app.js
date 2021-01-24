@@ -1,33 +1,39 @@
-const path = require('path');
-const express = require('express')
+const createError = require('http-errors');
+const express = require('express');
+const socketApi = require('./src/socketApi'); 
+const session = require('express-session');
+
+const io = socketApi.io;
+const cors = require('cors')
 const app = express();
-const http = require('http').Server(app);
-const io = require('socket.io')(http);
-const cors = require('cors');
-http.listen(3000);	
+const server = require('http').createServer(app) 
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+
+server.listen(3000);
+io.attach(server) 
+
+require('dotenv').config()
 
 const userRouter = require('./routes/user');
+const messageRouter = require('./routes/message');
 
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-
-
+app.use(logger('dev'));
+app.use(cookieParser());
 
 //db
 require('./config/db');
 
 app.use(cors());
 app.use('/users',userRouter);
+app.use('/messages',messageRouter);
 
 
 
-io.on('connection', () => {
-	console.log('connection');
-	io.on('disconnection',() => {
-		console.log('disconnect');
-	});
-});
+ 
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
