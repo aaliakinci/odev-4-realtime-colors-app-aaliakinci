@@ -1,15 +1,18 @@
-import { useContext} from 'react';
+import { useContext,useEffect} from 'react';
 import avatar from './avatar.png';
 import UserContext from '../../contexts/userContext';
 import ThemeContext from '../../contexts/themeContext';
 import styles from './styles.module.css';
-import { subscribeToRoom } from '../../socketService';
+import { subscribeToRoom,connection } from '../../socketService';
 import CookieContext from '../../contexts/cookieContext';
 function UserList() {
 	const { users, setSelectedUser, selectedUser } = useContext(UserContext);
 
 	const { theme } = useContext(ThemeContext);
 	const { userCookie } = useContext(CookieContext);
+	useEffect(() => {
+		connection();
+	}, [])
 	const createRoom = async (user) => {
 		subscribeToRoom([userCookie.user.username, user.username]);
 	};

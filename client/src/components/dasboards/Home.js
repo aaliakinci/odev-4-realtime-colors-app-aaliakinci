@@ -30,7 +30,6 @@ function Home() {
 	}, [getCookie,result]);
 	useEffect(() => {
 		connection();
-		
 	}, []);
 	const hasUser = () => {
 		return (

@@ -12,7 +12,7 @@ function RoomList() {
 	const [rooms, setRooms] = useState([]);
 
 	useEffect(() => {
-		connection();
+		
 		getUserRooms(userCookie.user.username);
 		listUserRooms((rooms) => {
 			setRooms((oldRooms) => [...oldRooms, ...rooms]);

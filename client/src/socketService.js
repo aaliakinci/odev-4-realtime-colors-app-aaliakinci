@@ -47,7 +47,8 @@ export const recivedMessage = (cb) => {
 	}
 };
 export const sendBg = (bg) => {
-  if (socket) socket.emit("new-Bg", bg);
+	if (socket) socket.emit("new-Bg", bg);
+	
 };
 
 
@@ -55,6 +56,7 @@ export const recivedBg = (cb) => {
 	if (socket)
 	{
 		socket.on("receive-Bg", (bg) => {
+			console.log(bg);
 			cb(bg);
 		});
 	}

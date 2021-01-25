@@ -1,8 +1,12 @@
-import React from 'react';
+import { useEffect } from 'react';
+import { connection } from '../../socketService';
 import ColorBase from '../RealTimeColor/ColorBase';
 import ColorChanger from '../RealTimeColor/ColorChanger';
 
 function ChangeColor() {
+	useEffect(() => {
+		connection();
+	}, []);
 	return (
 		<div className="container">
 			<div className="row">
