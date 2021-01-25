@@ -18,8 +18,8 @@ function ThemeChanger() {
 	};
 
 	return (
-		<div className="row my-4">
-			<div className="col-12 d-flex justify-content-between">
+		<div className="row py-4">
+			<div className="col-12 d-flex justify-content-between align-items-center">
 				<p className={`${styles.webbrand} text-white text-center`}>
 					{' '}
 					Realtime Color - Chat
