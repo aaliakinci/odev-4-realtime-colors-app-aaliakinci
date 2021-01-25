@@ -21,7 +21,6 @@ function App() {
 	return (
 		<div className={`${theme === 'dark' ? styles.darkbg : styles.lightbg}`}>
 			<div className="container-fluid">
-	 
 				<ThemeChanger/>
 				<Switch>
 					<Route path="/login" exact component={Login} />

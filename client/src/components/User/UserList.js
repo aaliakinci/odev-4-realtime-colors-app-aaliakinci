@@ -5,6 +5,8 @@ import ThemeContext from '../../contexts/themeContext';
 import styles from './styles.module.css';
 import { subscribeToRoom,connection } from '../../socketService';
 import CookieContext from '../../contexts/cookieContext';
+import { ToastContainer, toast } from 'react-toastify';
+
 function UserList() {
 	const { users, setSelectedUser, selectedUser } = useContext(UserContext);
 
@@ -14,10 +16,30 @@ function UserList() {
 		connection();
 	}, [])
 	const createRoom = async (user) => {
+		toast.success('🦄 Sohbetiniz oluştu sohbetlerime geçebilirsiniz!', {
+			position: 'top-center',
+			autoClose: 5000,
+			hideProgressBar: true,
+			closeOnClick: true,
+			pauseOnHover: true,
+			draggable: true,
+			progress: undefined,
+		});
 		subscribeToRoom([userCookie.user.username, user.username]);
 	};
 
 	return (
+		<>
+		<ToastContainer
+				position="top-center"
+				autoClose={2000}
+				hideProgressBar={false}
+				newestOnTop={false}
+				rtl={false}
+				pauseOnFocusLoss
+				draggable
+				pauseOnHover
+			/>
 		<div className={`${theme === 'light' ? styles.messagesbox : `${styles.messagesbox} bg-dark`}`}>
 			{users.map((user) => (
 				<div key={user._id}>
@@ -61,7 +83,7 @@ function UserList() {
 												}`}
 												onClick={() => createRoom(user)}
 											>
-												Mesaj Gönder
+												Sohbet Oluştur
 											</button>
 										</div>
 									</div>
@@ -72,6 +94,8 @@ function UserList() {
 				</div>
 			))}
 		</div>
+		</>
+		
 	);
 }
 

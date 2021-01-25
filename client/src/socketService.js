@@ -56,7 +56,6 @@ export const recivedBg = (cb) => {
 	if (socket)
 	{
 		socket.on("receive-Bg", (bg) => {
-			console.log(bg);
 			cb(bg);
 		});
 	}
