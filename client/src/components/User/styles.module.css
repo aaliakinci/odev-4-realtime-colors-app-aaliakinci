@@ -1,6 +1,6 @@
 .messagesbox{
-	min-height: 510px;
+	max-height: 510px;
 	background-color: #fff;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
  
