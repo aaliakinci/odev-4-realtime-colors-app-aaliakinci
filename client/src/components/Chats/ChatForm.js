@@ -23,13 +23,6 @@ function ChatForm() {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		const time = Date.now();
-		sendMessages({
-			user: messageUser,
-			message: inputValue,
-			messageTime: time,
-			roomName: selectedRoom.roomName,
-		});
-		setInputValue('');
 		setMessages([
 			...messages,
 			{
@@ -41,6 +34,14 @@ function ChatForm() {
 				},
 			},
 		]);
+		sendMessages({
+			user: messageUser,
+			message: inputValue,
+			messageTime: time,
+			roomName: selectedRoom.roomName,
+		});
+		setInputValue('');
+		
 	};
 
 	const hasRoom = () => {

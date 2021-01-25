@@ -22,14 +22,14 @@ function ChatArea() {
 
 		recivedMessage((data)=>setMessages((oldMessages)=>[...oldMessages,{data}]));
 		
-	}, [setMessages])
+	}, [setMessages,selectedRoom])
  
 	return (
 		<div
 			className={
 				theme === 'light'
-					? `px-2 py-4 ${styles.chatbox} bg-white`
-					: `px-2 py-4 ${styles.chatbox} bg-dark`
+					? `px-2 pt-2 ${styles.chatbox} bg-white`
+					: `px-2 pt-2 ${styles.chatbox} bg-dark`
 			}
 			ref={chatListRef}
 		>
