@@ -1,11 +1,9 @@
 import {useContext} from 'react'
 import ColorContext from '../../contexts/colorContext';
-import ThemeContext from '../../contexts/themeContext'
 import { sendBg } from '../../socketService';
 
 function ColorChanger() {
-	const {theme} = useContext(ThemeContext);
-	const {color,setColor} = useContext(ColorContext)
+	const {setColor} = useContext(ColorContext)
 	const handleChange=(e)=>{
 		setColor(e.target.value);
 		sendBg(e.target.value);

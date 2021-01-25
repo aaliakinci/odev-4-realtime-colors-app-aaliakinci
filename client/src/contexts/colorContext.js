@@ -6,7 +6,6 @@ const ColorContext = createContext();
 
 export const ColorProvider = ({ children }) => {
 	const [color, setColor] = useState(localColor);
-	const [bg,setBg] =useState()
 	const values = {
 		color,
 		setColor,

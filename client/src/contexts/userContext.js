@@ -34,6 +34,7 @@ export const UserProvider = ({ children }) => {
 		const url = `${process.env.REACT_APP_BACKEND_URL}/users/getAll`;
 		axios(url)
 			.then((response) => {
+
 				setUsers(response.data);
 			})
 			.catch((err) => {

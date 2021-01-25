@@ -6,7 +6,7 @@ function ColorBase() {
 	const {color,setColor} = useContext(ColorContext)
 	useEffect(() => {
 		recivedBg((bg)=>setColor(bg));
-	}, [color])
+	}, [color,setColor])
 	return (
 		<div className={styles.colorBase} style={{backgroundColor:color}}>
 			<p className="text-hide">Kodluyoruz Bootcamp Odev-4 Ali Akıncı</p>

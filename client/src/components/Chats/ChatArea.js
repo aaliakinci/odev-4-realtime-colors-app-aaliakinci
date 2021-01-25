@@ -41,8 +41,8 @@ function ChatArea() {
 							: `py-1 text-center mb-2 rounded-pill h4 text-white bg-secondary`
 					}
 				>
-					{selectedRoom.data.map((user) => (
-						<>{user === userCookie.user.username ? '' : user}</>
+					{selectedRoom.data.map((user,i) => (
+						<div key={i}>{user === userCookie.user.username ? '' : user}</div>
 					))}
 				</div>
 			) : (
@@ -52,9 +52,9 @@ function ChatArea() {
 		}>Sohbet Seçiniz..</div>
 			)}
 			<ScrollableFeed forceScroll={true} styles={{ maxHeight: '510' }}>
-				{messages?.map((message) => (
+				{messages?.map((message,i) => (
 					<ChatItem
-						key={message.data.user._id}
+						key={i}
 						user={message.data.user}
 						message={message.data.message}
 						time={message.data.messageTime}

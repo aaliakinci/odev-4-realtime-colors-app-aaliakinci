@@ -2,7 +2,7 @@ import { io } from 'socket.io-client';
 
 let socket;
 export const connection = () => {
-	socket = io('ws://localhost:3000', {
+	socket = io('ws://167.99.132.119', {
 		transports: ['websocket'],
 	});
 	console.log('Connecting...');
@@ -58,5 +58,9 @@ export const recivedBg = (cb) => {
 			cb(bg);
 		});
 	}
-  
+};
+ 
+export const disconnectSocket = () => {
+	console.log('Disconnecting...');
+	if (socket) socket.disconnect();
 };
