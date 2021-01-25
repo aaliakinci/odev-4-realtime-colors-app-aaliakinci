@@ -1,5 +1,5 @@
 import { useEffect, useContext, useState } from 'react';
-import { getUserRooms, listUserRooms, getMessages,disconnectSocket ,connection } from '../../socketService';
+import { getUserRooms, listUserRooms, getMessages,disconnectSocket  } from '../../socketService';
 import avatar from '../User/avatar.png';
 import ThemeContext from '../../contexts/themeContext';
 import styles from '../User/styles.module.css';
